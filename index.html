@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sai Ram Naveen Reddy P</title>
+<meta name="description" content="Cloud Platform & Data Engineer at DBS Bank — Spark, Kafka, Kubernetes, Terraform and GenAI platforms on AWS and GCP.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23132238'/%3E%3Ccircle cx='9' cy='16' r='4' fill='%230A7A73'/%3E%3Ccircle cx='23' cy='16' r='4' fill='none' stroke='%230A7A73' stroke-width='2'/%3E%3Cpath d='M13 16h6' stroke='%230A7A73' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,800;125,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #EAF0F4; --ink: #132238; --muted: #566A80; --rule: #C3D0DB;
+  --signal: #0A7A73; --amber: #9A5F0C; --amber-wash: #F6E3C4; --node: #FFFFFF;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1A28; --ink: #E3EAF1; --muted: #93A5B8; --rule: #2A3A4E;
+    --signal: #4CC2B8; --amber: #F0B661; --amber-wash: #3A2C14; --node: #0F1A28;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1A28; --ink: #E3EAF1; --muted: #93A5B8; --rule: #2A3A4E;
+  --signal: #4CC2B8; --amber: #F0B661; --amber-wash: #3A2C14; --node: #0F1A28;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.125rem/1.6 "Newsreader", Georgia, serif;
+  font-optical-sizing: auto;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+a { color: var(--signal); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3, .station-name, .contact a {
+  font-family: "Archivo", system-ui, sans-serif; font-stretch: 112%;
+}
+
+/* Hero */
+header { padding: 5.5rem 0 2.5rem; }
+h1 {
+  margin: 0; font-weight: 800; font-stretch: 125%;
+  font-size: clamp(2.3rem, 7.4vw, 4.4rem); line-height: .98; letter-spacing: -.01em;
+}
+.role { margin: 1.1rem 0 0; font: 500 1.15rem/1.3 "Archivo", sans-serif; font-stretch: 112%; color: var(--signal); }
+.lede { margin: 1.4rem 0 0; font-size: 1.3rem; line-height: 1.5; max-width: 38rem; }
+.contact { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; margin: 1.8rem 0 0; padding: 0; list-style: none; }
+.contact a { font-weight: 500; font-size: 1rem; }
+mark { background: var(--amber-wash); color: var(--amber); padding: 0 .15em; border-radius: 2px; font-weight: 500; }
+
+/* Pipeline: the three DBS platforms as stations on one line */
+.pipeline { margin: 3rem 0 0; }
+.pipeline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+h2 { font-size: 1.35rem; font-weight: 800; margin: 0; }
+.where { color: var(--muted); margin: 0; font-size: 1rem; }
+.line { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin: 1.6rem 0 0; padding: 0; list-style: none; }
+.line::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 13px; height: 3px;
+  background: linear-gradient(90deg, var(--rule), var(--signal) 50%, var(--rule));
+  background-size: 200% 100%; animation: flow 2.4s ease-out 1 both;
+}
+@keyframes flow { from { background-position: 100% 0; } to { background-position: 0 0; } }
+.station { position: relative; }
+.station button {
+  all: unset; cursor: pointer; display: block; padding-top: 2.4rem; padding-right: .8rem;
+}
+.station button::before {
+  content: ""; position: absolute; top: 2px; left: 0; width: 22px; height: 22px; border-radius: 50%;
+  border: 3px solid var(--signal); background: var(--node); box-sizing: border-box;
+  transition: background .2s;
+}
+.station button[aria-expanded="true"]::before { background: var(--signal); }
+.station-name { display: block; font-weight: 800; font-size: 1.02rem; line-height: 1.25; }
+.station-sub { display: block; color: var(--muted); font-size: .95rem; margin-top: .2rem; }
+.station button[aria-expanded="true"] .station-name { color: var(--signal); }
+.station button:focus-visible { outline: none; }
+.station button:focus-visible .station-name { outline: 2px solid var(--signal); outline-offset: 3px; }
+.detail { margin: 1.6rem 0 0; padding: 1.2rem 0 0; border-top: 1px solid var(--rule); }
+.detail[hidden] { display: none; }
+.detail ul, .project ul { margin: 0; padding-left: 1.1rem; }
+.detail li, .project li { margin: 0 0 .55rem; }
+.detail li::marker, .project li::marker { color: var(--signal); }
+
+section { margin: 3.6rem 0 0; }
+.project h3 { font-size: 1.1rem; font-weight: 800; margin: 1.2rem 0 .2rem; }
+.project .note { color: var(--muted); font-size: 1rem; margin: 0 0 .7rem; }
+dl.skills { display: grid; grid-template-columns: max-content 1fr; gap: .45rem 1.4rem; margin: 1.2rem 0 0; }
+dl.skills dt { font: 500 1rem/1.6 "Archivo", sans-serif; font-stretch: 112%; color: var(--muted); }
+dl.skills dd { margin: 0; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.pair ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+.pair li { margin: 0 0 .4rem; }
+.pair p { margin: 1rem 0 0; }
+footer { margin: 4.5rem 0 0; padding: 1.6rem 0 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+
+@media (max-width: 620px) {
+  header { padding-top: 3.5rem; }
+  .line { grid-template-columns: 1fr; gap: .2rem; }
+  .line::before { left: 10px; right: auto; top: 0; bottom: 0; width: 3px; height: auto; }
+  .station button { padding: .3rem 0 1rem 2.4rem; }
+  .station button::before { top: .45rem; }
+  dl.skills { grid-template-columns: 1fr; gap: 0; }
+  dl.skills dd { margin-bottom: .7rem; }
+  .pair { grid-template-columns: 1fr; gap: 0; }
+  .pair > div + div { margin-top: 2.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .line::before { animation: none; background-position: 0 0; }
+  .station button::before { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Sai Ram Naveen Reddy&nbsp;P</h1>
+  <p class="role">Cloud Platform &amp; Data Engineer, DBS Bank</p>
+  <p class="lede">I build and run large-scale data platforms, cloud infrastructure and GenAI systems on AWS and GCP — Spark and Kafka pipelines, Kubernetes, Terraform and cloud-native CI/CD. In production that has meant <mark>~70%</mark> lower cloud cost and <mark>~60%</mark> lower pipeline latency.</p>
+  <ul class="contact">
+    <li><a href="mailto:sairamnaveen02@gmail.com">sairamnaveen02@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/sairamnaveen02/">LinkedIn</a></li>
+    <li><a href="https://github.com/SaiRam-0209">GitHub</a></li>
+  </ul>
+</header>
+
+<main>
+<div class="pipeline">
+  <div class="pipeline-head">
+    <h2>What I run at DBS Bank</h2>
+    <p class="where">Since July 2022, Hyderabad</p>
+  </div>
+  <ol class="line">
+    <li class="station"><button type="button" aria-expanded="true" aria-controls="d-genai">
+      <span class="station-name">Enterprise GenAI platform</span>
+      <span class="station-sub">DBS-GPT on Glean</span></button></li>
+    <li class="station"><button type="button" aria-expanded="false" aria-controls="d-aws">
+      <span class="station-name">AWS data platform</span>
+      <span class="station-sub">EMR, Kafka, Trino, SageMaker</span></button></li>
+    <li class="station"><button type="button" aria-expanded="false" aria-controls="d-gcp">
+      <span class="station-name">GCP infrastructure &amp; FinOps</span>
+      <span class="station-sub">GKE, BigQuery, VPC</span></button></li>
+  </ol>
+
+  <div class="detail" id="d-genai">
+    <ul>
+      <li>Platform SME for the enterprise GenAI knowledge platform: data visibility, prompt configuration and agent publishing.</li>
+      <li>Configured and maintained ingestion pipelines from SharePoint, Confluence and Jira into the enterprise knowledge base, enabling daily AI-driven search and Q&amp;A.</li>
+      <li>Made architectural decisions on data access patterns and retrieval flows, integrating secure internal APIs into CI/CD pipelines.</li>
+      <li>Automated build and deployment with GitHub Actions, Cloud Functions and Cloud Run.</li>
+      <li>Worked directly with the vendor, Glean, to resolve production incidents and retrieval issues.</li>
+    </ul>
+  </div>
+  <div class="detail" id="d-aws" hidden>
+    <ul>
+      <li>Owned the design and evolution of Spark/PySpark pipelines on AWS EMR handling multi-terabyte daily datasets for analytics and ML.</li>
+      <li>Designed batch and near real-time ingestion with Kafka and AWS Lambda, choosing event-driven patterns for fresher, more reliable data.</li>
+      <li>Enabled federated analytics with Trino across S3, Hive and RDS, removing data duplication while balancing query performance and cost.</li>
+      <li>Reduced end-to-end pipeline latency by <mark>~60%</mark> by redesigning orchestration and introducing event-driven triggers.</li>
+      <li>Integrated pipelines with SageMaker training and inference, handling backfills, late-arriving data and schema evolution.</li>
+    </ul>
+  </div>
+  <div class="detail" id="d-gcp" hidden>
+    <ul>
+      <li>Built cost-efficient analytical pipelines on BigQuery with partitioned tables and materialized views.</li>
+      <li>Managed GKE clusters, firewall rules and VPC configuration for secure ingestion; resolved egress connectivity issues and removed redundant log sinks.</li>
+      <li>Led FinOps work on compute and storage cost drivers — automated cleanup, right-sizing and scaling — for a <mark>~70%</mark> sustained cloud cost reduction across AWS and GCP.</li>
+      <li>Mentored junior engineers and set Spark, SQL and Airflow practices that reduced production incidents.</li>
+    </ul>
+  </div>
+</div>
+
+<section class="project">
+  <h2>Personal project</h2>
+  <h3>Job Automation &amp; Resume Studio</h3>
+  <p class="note">Built on the open-source Auto Job Applier by Sai Vignesh Golla (AGPL-3.0).</p>
+  <ul>
+    <li>Extended an open-source LinkedIn auto-apply bot with a resume engine that tailors a one-page resume to each job description using Gemini, behind a truth check that rejects any claim not traceable to the candidate's confirmed experience.</li>
+    <li>Built a multi-user resume web app on Flask with Google sign-in, admin approval, KMS-encrypted secrets and Firestore and Cloud Storage backends, designed for Cloud Run; covered by 500+ automated tests.</li>
+    <li>Made Gemini usage resilient with failover across API keys, quota-aware retries and error handling that never exposes raw API errors to users.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Cloud</dt><dd>AWS (EMR, S3, Lambda, SageMaker, EC2, IAM), GCP (GKE, BigQuery, GCS, Cloud Functions, Cloud Run)</dd>
+    <dt>Data engineering</dt><dd>Spark, PySpark, Kafka, Airflow, Trino, SQL</dd>
+    <dt>Programming</dt><dd>Python, SQL, Bash</dd>
+    <dt>DevOps &amp; infra</dt><dd>Terraform, Docker, Kubernetes (GKE), CI/CD (GitHub Actions, Jenkins)</dd>
+    <dt>Databases</dt><dd>BigQuery, PostgreSQL, Redis</dd>
+    <dt>Monitoring</dt><dd>Grafana, ELK, CloudWatch</dd>
+  </dl>
+</section>
+
+<section class="pair">
+  <div>
+    <h2>Certifications</h2>
+    <ul>
+      <li>AWS Certified Solutions Architect – Associate</li>
+      <li>Google Cloud Associate Cloud Engineer</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Education</h2>
+    <p>B.Tech, Computer Science &amp; Engineering<br>JNTU Anantapur, 2018–2022</p>
+  </div>
+</section>
+</main>
+
+<footer>Sai Ram Naveen Reddy P, Hyderabad, India</footer>
+</div>
+<script>
+document.querySelectorAll(".station button").forEach(function (button) {
+  button.addEventListener("click", function () {
+    document.querySelectorAll(".station button").forEach(function (other) {
+      var open = other === button;
+      other.setAttribute("aria-expanded", String(open));
+      document.getElementById(other.getAttribute("aria-controls")).hidden = !open;
+    });
+  });
+});
+</script>
+</body>
+</html>
